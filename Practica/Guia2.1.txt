@@ -1,0 +1,48 @@
+Guia 2
+
+Ejercicio 5:
+
+problema cantidadColectivosLinea (colectivosValidos : seq(Z), nLinea : Z, nCantidad : seq(Z)) : Z {
+    requiere: {nLinea es un elemento de colectivosValidos}
+    requiere: {nCantidad es cantidadIngresosDia(colectivosValidos)}
+    asegura: {res es la cantidad de veces que nLinea aparece en nCantidad}
+    }
+
+problema cantidadIngresosDia (colectivosValidos: seq(Z)) : seq(Z) {
+    asegura: (res tiene la misma cantidad de elementos que colectivosValidos)
+    asegura: (en cada posicion de res, es la cantidad de veces que el colectivo de esa misma posicion en colectivosValidos ingreso a CU durante un dia)
+    }
+
+problema compararLineas (dosLineas : seq(Z)) : Z {
+    requiere: {dosLineas tiene 2 elementos}
+    requiere: {no pueden repetirse elementos en dosLineas}
+    asegura: {res es el elemento de la secuencia dosLineas tal que cantidadColectivosLinea(res) es mayor que la del otro elemento} 
+    }
+
+
+Ejercicio 6:
+
+problema promedioAlumno (materiasNotas : seq([String, Z])) : R {
+    requiere: {Que no se repitan las materias}
+    requiere: {Las notas son todas mayores o iguales a 4}
+    asegura: {res es la suma de todas las notas dividido por la cantidad total de notas}
+}
+
+problema mayorNota (materiasNotas : seq([String, Z])) : [String, Z] {
+    requiere: {Que no se repitan las materias en materiasNotas}
+    requiere: {Las notas son todas mayores o iguales a 4}
+    asegura: {res es el conjunto de la materia con la nota mas alta acompañado del valor de la nota}
+}
+
+problema aprobarMateria (notasDelDc : seq([String, seq(String, Z)])) : seq(String) {
+    requiere: {Que no se repitan los alumnos en notasDelDc}
+    requiere: {Que no se repitan materia en cada apartado de alumno de notasDelDc}
+    asegura: {res son todos los alumnos que dada una determinada materia aparece en su registro de notasDelDc}
+    asegura: {res tiene los nombres de todos los alumnos en orden alfabetico}
+}
+
+problema promedioTodosAlumnos (notasDelDc : seq([String, seq(String, Z)])) : seq(String, R) {
+    requiere: {Que no se repitan alumnos en notasDelDc}
+    requiere: {Que no se repitan notas en cada apartado de alumno de notasDelDc}
+    asegura: {res es el conjunto de todos los alumnos y de aplicar promedioAlumno() a cada uno}
+}
